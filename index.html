@@ -1,14 +1,38 @@
 ```html
 <!DOCTYPE html>
 <html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio ของรวิภา คำจันทร์</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio | รวิภา คำจันทร์</title>
+
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Prompt:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
 
     <style>
+
+        /* =========================================
+           พื้นฐาน
+        ========================================= */
+
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
@@ -17,432 +41,1253 @@
         }
 
         body {
-            margin: 0;
-            font-family: "Arial", sans-serif;
-            background: #fff7fb;
-            color: #333;
-            line-height: 1.8;
+            font-family: "Prompt", sans-serif;
+            background: #fff7fc;
+            color: #444;
+            overflow-x: hidden;
         }
 
-        /* ===== เมนูด้านบน ===== */
+
+        /* =========================================
+           พื้นหลังตกแต่ง
+        ========================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+
+            width: 350px;
+            height: 350px;
+
+            background: #ffd6ea;
+
+            border-radius: 50%;
+
+            top: -150px;
+            left: -150px;
+
+            filter: blur(20px);
+
+            opacity: 0.7;
+
+            z-index: -1;
+        }
+
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 400px;
+            height: 400px;
+
+            background: #e5d7ff;
+
+            border-radius: 50%;
+
+            right: -180px;
+            bottom: -150px;
+
+            filter: blur(30px);
+
+            opacity: 0.7;
+
+            z-index: -1;
+        }
+
+
+        /* =========================================
+           Navbar
+        ========================================= */
+
         nav {
             position: sticky;
+
             top: 0;
-            z-index: 100;
-            background: #ffffff;
-            padding: 15px 8%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+            z-index: 1000;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
+            padding: 15px 8%;
+
+            background: rgba(255,255,255,0.85);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #f3d9e8;
         }
 
-        nav .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #d46a92;
+
+        .logo {
+
+            font-family: "Itim", cursive;
+
+            font-size: 30px;
+
+            color: #d95d91;
+
         }
+
+
+        nav ul {
+
+            list-style: none;
+
+            display: flex;
+
+            gap: 30px;
+
+        }
+
 
         nav a {
+
             text-decoration: none;
+
             color: #555;
-            margin-left: 25px;
-            font-weight: bold;
+
+            font-weight: 500;
+
+            transition: 0.3s;
+
         }
+
 
         nav a:hover {
-            color: #d46a92;
+
+            color: #d95d91;
+
         }
 
-        /* ===== หน้าหลัก ===== */
+
+        /* =========================================
+           Hero
+        ========================================= */
+
         .hero {
+
             min-height: 90vh;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #fff0f6, #f8f0ff);
+
+            padding: 60px 20px;
+
+            position: relative;
+
         }
+
 
         .hero-content {
+
             max-width: 850px;
+
         }
+
+
+        /* รูปโปรไฟล์ */
+
+        .profile {
+
+            width: 180px;
+
+            height: 180px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 7px solid white;
+
+            box-shadow:
+
+                0 10px 35px rgba(200,80,130,0.25);
+
+            margin-bottom: 25px;
+
+            animation: float 4s ease-in-out infinite;
+
+        }
+
+
+        @keyframes float {
+
+            0%,100% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(-12px);
+
+            }
+
+        }
+
+
+        .hello {
+
+            color: #d95d91;
+
+            font-size: 22px;
+
+        }
+
 
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-            color: #c95782;
+
+            font-family: "Itim", cursive;
+
+            font-size: 58px;
+
+            color: #c84f83;
+
+            margin: 5px 0;
+
         }
+
+
+        .hero h2 {
+
+            font-size: 25px;
+
+            color: #777;
+
+            font-weight: 400;
+
+        }
+
 
         .hero p {
-            font-size: 20px;
-            color: #555;
+
+            margin-top: 15px;
+
+            color: #777;
+
         }
 
-        .hero .name {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 25px;
-        }
+
+        /* ปุ่ม */
 
         .btn {
+
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 28px;
-            background: #d46a92;
+
+            margin-top: 30px;
+
+            padding: 13px 30px;
+
+            border-radius: 40px;
+
+            background: linear-gradient(
+                135deg,
+                #df6b9d,
+                #a879d8
+            );
+
             color: white;
+
             text-decoration: none;
-            border-radius: 30px;
+
+            box-shadow:
+
+                0 8px 20px rgba(200,90,150,0.25);
+
             transition: 0.3s;
+
         }
+
 
         .btn:hover {
-            background: #b94e76;
-            transform: translateY(-2px);
+
+            transform: translateY(-4px);
+
+            box-shadow:
+
+                0 12px 25px rgba(200,90,150,0.35);
+
         }
 
-        /* ===== ส่วนเนื้อหา ===== */
+
+        /* =========================================
+           Section
+        ========================================= */
+
         section {
-            max-width: 1000px;
+
+            max-width: 1100px;
+
             margin: auto;
-            padding: 80px 25px;
+
+            padding: 90px 25px;
+
         }
 
-        section h2 {
+
+        .section-title {
+
             text-align: center;
-            color: #c95782;
-            font-size: 32px;
-            margin-bottom: 40px;
+
+            margin-bottom: 50px;
+
         }
 
-        /* ===== ข้อมูลส่วนตัว ===== */
-        .info-box {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+        .section-title h2 {
+
+            font-family: "Itim", cursive;
+
+            font-size: 45px;
+
+            color: #c84f83;
+
         }
 
-        .info {
+
+        .section-title p {
+
+            color: #999;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =========================================
+           About
+        ========================================= */
+
+        .about-card {
+
+            background: rgba(255,255,255,0.8);
+
+            border-radius: 30px;
+
+            padding: 40px;
+
+            box-shadow:
+
+                0 15px 40px rgba(180,100,140,0.10);
+
+            border: 1px solid #f3dce8;
+
+        }
+
+
+        .info-grid {
+
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+
+            grid-template-columns: repeat(2,1fr);
+
+            gap: 18px;
+
         }
 
-        .info p {
-            margin: 0;
-            padding: 12px;
-            background: #fff4f8;
-            border-radius: 10px;
+
+        .info-item {
+
+            padding: 18px;
+
+            background: #fff5fa;
+
+            border-radius: 18px;
+
+            border-left: 5px solid #df76a3;
+
+            transition: 0.3s;
+
         }
 
-        /* ===== ผลงาน ===== */
-        .work-container {
+
+        .info-item:hover {
+
+            transform: translateX(5px);
+
+            background: #ffeaf3;
+
+        }
+
+
+        .info-item span {
+
+            display: block;
+
+            color: #d35d8e;
+
+            font-weight: 600;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        /* =========================================
+           ผลงาน
+        ========================================= */
+
+        .works {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns: repeat(3,1fr);
+
             gap: 25px;
+
         }
+
 
         .work-card {
+
             background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: 0.3s;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            box-shadow:
+
+                0 12px 35px rgba(180,90,140,0.10);
+
+            border: 1px solid #f4dce8;
+
+            transition: 0.35s;
+
+            position: relative;
+
+            overflow: hidden;
+
         }
+
+
+        .work-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+
+            height: 100px;
+
+            background: #ffe0ee;
+
+            border-radius: 50%;
+
+            right: -40px;
+
+            top: -40px;
+
+        }
+
 
         .work-card:hover {
-            transform: translateY(-5px);
+
+            transform: translateY(-10px);
+
+            box-shadow:
+
+                0 20px 45px rgba(180,90,140,0.18);
+
         }
+
+
+        .work-icon {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+
+        }
+
 
         .work-card h3 {
-            color: #c95782;
+
+            color: #c75284;
+
+            margin-bottom: 12px;
+
+            font-size: 21px;
+
         }
 
-        /* ===== ความสามารถ ===== */
-        .skills {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+
+        .work-card p {
+
+            color: #777;
+
+            font-size: 15px;
+
         }
+
+
+        .award {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 6px 14px;
+
+            border-radius: 20px;
+
+            background: #fff0b8;
+
+            color: #9b7610;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================================
+           ความสามารถ
+        ========================================= */
+
+        .skills {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+        }
+
 
         .skill {
+
             background: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            color: #c95782;
-            font-weight: bold;
+
+            padding: 20px 35px;
+
+            border-radius: 50px;
+
+            box-shadow:
+
+                0 10px 25px rgba(180,90,140,0.12);
+
+            border: 1px solid #f2dce7;
+
+            color: #c75284;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
         }
 
-        /* ===== ติดต่อ ===== */
-        .contact {
+
+        .skill:hover {
+
+            transform: translateY(-7px) rotate(-2deg);
+
+            background: #fff0f7;
+
+        }
+
+
+        /* =========================================
+           Quote
+        ========================================= */
+
+        .quote {
+
+            margin-top: 40px;
+
+            padding: 35px;
+
             text-align: center;
-            background: #fff0f6;
+
             border-radius: 25px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #fff0f7,
+                    #f3ecff
+                );
+
+            color: #777;
+
+            font-style: italic;
+
         }
 
-        /* ===== Footer ===== */
+
+        .quote span {
+
+            display: block;
+
+            margin-top: 10px;
+
+            color: #c75284;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================================
+           Footer
+        ========================================= */
+
         footer {
+
             text-align: center;
-            padding: 25px;
-            background: #d46a92;
+
+            padding: 30px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #d96998,
+                    #9b78d0
+                );
+
             color: white;
+
         }
 
-        /* ===== โทรศัพท์ ===== */
-        @media (max-width: 700px) {
+
+        footer h3 {
+
+            font-family: "Itim", cursive;
+
+            font-size: 28px;
+
+        }
+
+
+        footer p {
+
+            margin-top: 5px;
+
+            opacity: 0.9;
+
+        }
+
+
+        /* =========================================
+           ตกแต่งดาว
+        ========================================= */
+
+        .star {
+
+            position: absolute;
+
+            color: #e99aba;
+
+            font-size: 25px;
+
+            animation: sparkle 2s infinite;
+
+        }
+
+
+        .star1 {
+
+            top: 20%;
+
+            left: 10%;
+
+        }
+
+
+        .star2 {
+
+            top: 30%;
+
+            right: 12%;
+
+            animation-delay: .5s;
+
+        }
+
+
+        .star3 {
+
+            bottom: 20%;
+
+            left: 15%;
+
+            animation-delay: 1s;
+
+        }
+
+
+        @keyframes sparkle {
+
+            0%,100% {
+
+                opacity: .3;
+
+                transform: scale(.8);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform: scale(1.2);
+
+            }
+
+        }
+
+
+        /* =========================================
+           มือถือ
+        ========================================= */
+
+        @media(max-width:800px) {
 
             nav {
-                flex-direction: column;
-                gap: 10px;
+
+                padding: 15px 5%;
+
             }
+
+
+            nav ul {
+
+                gap: 10px;
+
+            }
+
 
             nav a {
-                margin: 0 8px;
+
+                font-size: 13px;
+
             }
+
 
             .hero h1 {
-                font-size: 30px;
+
+                font-size: 42px;
+
             }
 
-            .hero .name {
-                font-size: 22px;
+
+            .hero h2 {
+
+                font-size: 20px;
+
             }
 
-            .info {
+
+            .info-grid {
+
                 grid-template-columns: 1fr;
+
             }
 
-            .work-container {
+
+            .works {
+
                 grid-template-columns: 1fr;
+
             }
+
+
+            section {
+
+                padding: 65px 20px;
+
+            }
+
         }
+
+
+        @media(max-width:500px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+            }
+
+
+            .profile {
+
+                width: 140px;
+
+                height: 140px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 36px;
+
+            }
+
+
+            .section-title h2 {
+
+                font-size: 36px;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================
+
+    <!-- =========================================
          เมนู
-    ========================== -->
+    ========================================== -->
 
     <nav>
-        <div class="logo">Portfolio</div>
 
-        <div>
-            <a href="#about">ข้อมูลส่วนตัว</a>
-            <a href="#works">ผลงาน</a>
-            <a href="#skills">ความสามารถ</a>
+        <div class="logo">
+            Ravipa ♡
         </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">หน้าแรก</a>
+            </li>
+
+            <li>
+                <a href="#about">ข้อมูลส่วนตัว</a>
+            </li>
+
+            <li>
+                <a href="#works">ผลงาน</a>
+            </li>
+
+            <li>
+                <a href="#skills">ความสามารถ</a>
+            </li>
+
+        </ul>
+
     </nav>
 
 
-    <!-- =========================
-         หน้าแรก
-    ========================== -->
 
-    <header class="hero">
+    <!-- =========================================
+         หน้าแรก
+    ========================================== -->
+
+    <header class="hero" id="home">
+
+
+        <div class="star star1">
+            ✦
+        </div>
+
+        <div class="star star2">
+            ✧
+        </div>
+
+        <div class="star star3">
+            ♡
+        </div>
+
 
         <div class="hero-content">
 
-            <h1>สวัสดีค่ะดิฉัน</h1>
 
-            <div class="name">
-                นางสาวรวิภา คำจันทร์
+            <!--
+                ถ้ามีรูปตัวเอง
+                เปลี่ยน src เป็นชื่อรูป เช่น
+
+                src="profile.jpg"
+            -->
+
+            <img
+                src="https://placehold.co/400x400/ffdbea/c95782?text=R"
+                class="profile"
+                alt="รูปโปรไฟล์"
+            >
+
+
+            <div class="hello">
+                ✿ สวัสดีค่ะดิฉัน ✿
             </div>
+
+
+            <h1>
+                รวิภา คำจันทร์
+            </h1>
+
+
+            <h2>
+                Portfolio
+            </h2>
+
 
             <p>
                 ยินดีต้อนรับสู่ Portfolio ของดิฉัน
             </p>
 
-            <a href="#about" class="btn">
-                ดูข้อมูลของฉัน
+
+            <a
+                href="#about"
+                class="btn"
+            >
+                ✿ รู้จักฉันมากขึ้น
             </a>
+
 
         </div>
 
     </header>
 
 
-    <!-- =========================
+
+    <!-- =========================================
          ข้อมูลส่วนตัว
-    ========================== -->
+    ========================================== -->
 
     <section id="about">
 
-        <h2>ข้อมูลส่วนตัว</h2>
 
-        <div class="info-box">
+        <div class="section-title">
 
-            <div class="info">
+            <h2>
+                ♡ ข้อมูลส่วนตัว ♡
+            </h2>
 
-                <p>
-                    <strong>ชื่อ-นามสกุล :</strong>
+            <p>
+                About Me
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+
+            <div class="info-grid">
+
+
+                <div class="info-item">
+
+                    <span>
+                        🌷 ชื่อ-นามสกุล
+                    </span>
+
                     รวิภา คำจันทร์
-                </p>
 
-                <p>
-                    <strong>ชื่อเล่น :</strong>
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        🌷 ชื่อเล่น
+                    </span>
+
                     ใบเตย
-                </p>
 
-                <p>
-                    <strong>วันเกิด :</strong>
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        🎂 วันเกิด
+                    </span>
+
                     01 ตุลาคม 2008
-                </p>
 
-                <p>
-                    <strong>อายุ :</strong>
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        ✨ อายุ
+                    </span>
+
                     18 ปี
-                </p>
 
-                <p>
-                    <strong>เชื้อชาติ :</strong>
-                    ไทย
-                </p>
+                </div>
 
-                <p>
-                    <strong>สัญชาติ :</strong>
+
+                <div class="info-item">
+
+                    <span>
+                        🌷 เชื้อชาติ
+                    </span>
+
                     ไทย
-                </p>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        🌷 สัญชาติ
+                    </span>
+
+                    ไทย
+
+                </div>
+
 
             </div>
+
+
+            <div class="quote">
+
+                "ยินดีต้อนรับเข้าสู่ Portfolio
+                และพื้นที่เล็ก ๆ ที่รวบรวมเรื่องราว
+                ผลงาน และความสามารถของฉัน"
+
+                <span>
+                    — รวิภา คำจันทร์ —
+                </span>
+
+            </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- =========================
+
+    <!-- =========================================
          ผลงาน
-    ========================== -->
+    ========================================== -->
 
     <section id="works">
 
-        <h2>ผลงานของดิฉัน</h2>
 
-        <div class="work-container">
+        <div class="section-title">
 
-            <!-- ผลงานที่ 1 -->
+            <h2>
+                ♡ ผลงานของดิฉัน ♡
+            </h2>
+
+            <p>
+                My Activities & Achievements
+            </p>
+
+        </div>
+
+
+        <div class="works">
+
+
+            <!-- ผลงาน 1 -->
 
             <div class="work-card">
+
+                <div class="work-icon">
+                    🎤
+                </div>
 
                 <h3>
                     พิธีกรวันตรุษจีน
                 </h3>
 
                 <p>
-                    ได้รับหน้าที่ให้เป็นพิธีกรดำเนินกิจกรรม
+
+                    ได้รับหน้าที่ให้เป็นพิธีกร
+                    ดำเนินกิจกรรม
                     <strong>วันตรุษจีน</strong>
                     ของโรงเรียน
+
                 </p>
 
             </div>
 
 
-            <!-- ผลงานที่ 2 -->
+
+            <!-- ผลงาน 2 -->
 
             <div class="work-card">
+
+                <div class="work-icon">
+                    💄
+                </div>
 
                 <h3>
                     ประกวดแต่งหน้าโต่วอิน
                 </h3>
 
                 <p>
+
                     ได้เข้าร่วมกิจกรรมการแข่งขัน
                     <strong>การแต่งหน้าโต่วอิน</strong>
-                    ประเภททีม โดยรับหน้าที่เป็นช่างแต่งหน้า
-                    และแต่งตัว
+                    ประเภททีม โดยรับหน้าที่เป็น
+                    ช่างแต่งหน้าและแต่งตัว
+
                 </p>
 
-                <p>
-                    <strong>ได้รับรางวัลชนะเลิศอันดับที่ 1</strong>
-                </p>
+
+                <div class="award">
+
+                    🏆 รางวัลชนะเลิศอันดับที่ 1
+
+                </div>
 
             </div>
 
 
-            <!-- ผลงานที่ 3 -->
+
+            <!-- ผลงาน 3 -->
 
             <div class="work-card">
+
+                <div class="work-icon">
+                    🇨🇳
+                </div>
 
                 <h3>
                     ค่ายภาษาจีน
                 </h3>
 
                 <p>
-                    ได้รับหน้าที่เป็นสต๊าฟในการดูแลฐานกิจกรรม
+
+                    ได้รับหน้าที่เป็นสต๊าฟ
+                    ในการดูแลฐานกิจกรรม
                     <strong>หมากล้อม</strong>
+
                 </p>
 
             </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- =========================
-         ความสามารถพิเศษ
-    ========================== -->
+
+    <!-- =========================================
+         ความสามารถ
+    ========================================== -->
 
     <section id="skills">
 
-        <h2>ความสามารถพิเศษ</h2>
+
+        <div class="section-title">
+
+            <h2>
+                ♡ ความสามารถพิเศษ ♡
+            </h2>
+
+            <p>
+                My Skills
+            </p>
+
+        </div>
+
 
         <div class="skills">
+
 
             <div class="skill">
                 🎨 วาดรูป
             </div>
 
+
             <div class="skill">
                 🎤 ร้องเพลง
             </div>
+
 
             <div class="skill">
                 💄 การแต่งหน้า
             </div>
 
+
         </div>
+
 
     </section>
 
 
-    <!-- =========================
-         ติดต่อ
-    ========================== -->
+
+    <!-- =========================================
+         ขอบคุณ
+    ========================================== -->
 
     <section>
 
-        <div class="contact">
 
-            <h2>ขอบคุณที่เข้าชม Portfolio</h2>
+        <div class="quote">
+
+            <h2>
+                ✿ Thank You ✿
+            </h2>
 
             <p>
-                นางสาวรวิภา คำจันทร์
+                ขอบคุณที่เข้ามาเยี่ยมชม Portfolio
+                ของฉันนะคะ ♡
             </p>
 
         </div>
 
+
     </section>
 
 
-    <!-- =========================
+
+    <!-- =========================================
          Footer
-    ========================== -->
+    ========================================== -->
 
     <footer>
 
-        © 2026 Rawipa Khamchan
+        <h3>
+            @ Rawipa Khamchan ♡
+        </h3>
+
+        <p>
+            Portfolio 2026
+        </p>
 
     </footer>
 
 
 </body>
+
 </html>
 ```
