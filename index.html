@@ -1,76 +1,452 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>เว็บไซต์ของฉัน</title>
+    <title>Portfolio ของรวิภา คำจันทร์</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            font-family: "Arial", sans-serif;
+            background: #fff7fb;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* ===== เมนูด้านบน ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #ffffff;
+            padding: 15px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d46a92;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #d46a92;
+        }
+
+        /* ===== หน้าหลัก ===== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #fff0f6, #f8f0ff);
         }
 
-        .box {
-            max-width: 800px;
-            margin: 80px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px #ccc;
+        .hero-content {
+            max-width: 850px;
         }
 
-        img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #c95782;
         }
 
-        h1 {
-            font-size: 40px;
+        .hero p {
+            font-size: 20px;
+            color: #555;
         }
 
-        p {
-            font-size: 18px;
+        .hero .name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 25px;
         }
 
-        a {
+        .btn {
             display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            background: #222;
+            margin-top: 25px;
+            padding: 12px 28px;
+            background: #d46a92;
             color: white;
             text-decoration: none;
             border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b94e76;
+            transform: translateY(-2px);
+        }
+
+        /* ===== ส่วนเนื้อหา ===== */
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #c95782;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        /* ===== ข้อมูลส่วนตัว ===== */
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info p {
+            margin: 0;
+            padding: 12px;
+            background: #fff4f8;
+            border-radius: 10px;
+        }
+
+        /* ===== ผลงาน ===== */
+        .work-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .work-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-card h3 {
+            color: #c95782;
+        }
+
+        /* ===== ความสามารถ ===== */
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            color: #c95782;
+            font-weight: bold;
+        }
+
+        /* ===== ติดต่อ ===== */
+        .contact {
+            text-align: center;
+            background: #fff0f6;
+            border-radius: 25px;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #d46a92;
+            color: white;
+        }
+
+        /* ===== โทรศัพท์ ===== */
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero .name {
+                font-size: 22px;
+            }
+
+            .info {
+                grid-template-columns: 1fr;
+            }
+
+            .work-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="box">
+    <!-- =========================
+         เมนู
+    ========================== -->
 
-        <!-- เปลี่ยนรูปตรงนี้ -->
-        <img src="https://placehold.co/300x300" alt="รูปของฉัน">
+    <nav>
+        <div class="logo">Portfolio</div>
 
-        <!-- เปลี่ยนชื่อ -->
-        <h1>ชื่อของฉัน</h1>
+        <div>
+            <a href="#about">ข้อมูลส่วนตัว</a>
+            <a href="#works">ผลงาน</a>
+            <a href="#skills">ความสามารถ</a>
+        </div>
+    </nav>
 
-        <!-- เปลี่ยนคำแนะนำตัว -->
-        <p>สวัสดี นี่คือเว็บไซต์ของฉัน</p>
 
-        <!-- เปลี่ยนลิงก์ -->
-        <a href="#">Facebook</a>
-        <a href="#">GitHub</a>
-        <a href="#">Instagram</a>
+    <!-- =========================
+         หน้าแรก
+    ========================== -->
 
-    </div>
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <h1>สวัสดีค่ะดิฉัน</h1>
+
+            <div class="name">
+                นางสาวรวิภา คำจันทร์
+            </div>
+
+            <p>
+                ยินดีต้อนรับสู่ Portfolio ของดิฉัน
+            </p>
+
+            <a href="#about" class="btn">
+                ดูข้อมูลของฉัน
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ข้อมูลส่วนตัว
+    ========================== -->
+
+    <section id="about">
+
+        <h2>ข้อมูลส่วนตัว</h2>
+
+        <div class="info-box">
+
+            <div class="info">
+
+                <p>
+                    <strong>ชื่อ-นามสกุล :</strong>
+                    รวิภา คำจันทร์
+                </p>
+
+                <p>
+                    <strong>ชื่อเล่น :</strong>
+                    ใบเตย
+                </p>
+
+                <p>
+                    <strong>วันเกิด :</strong>
+                    01 ตุลาคม 2008
+                </p>
+
+                <p>
+                    <strong>อายุ :</strong>
+                    18 ปี
+                </p>
+
+                <p>
+                    <strong>เชื้อชาติ :</strong>
+                    ไทย
+                </p>
+
+                <p>
+                    <strong>สัญชาติ :</strong>
+                    ไทย
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ผลงาน
+    ========================== -->
+
+    <section id="works">
+
+        <h2>ผลงานของดิฉัน</h2>
+
+        <div class="work-container">
+
+            <!-- ผลงานที่ 1 -->
+
+            <div class="work-card">
+
+                <h3>
+                    พิธีกรวันตรุษจีน
+                </h3>
+
+                <p>
+                    ได้รับหน้าที่ให้เป็นพิธีกรดำเนินกิจกรรม
+                    <strong>วันตรุษจีน</strong>
+                    ของโรงเรียน
+                </p>
+
+            </div>
+
+
+            <!-- ผลงานที่ 2 -->
+
+            <div class="work-card">
+
+                <h3>
+                    ประกวดแต่งหน้าโต่วอิน
+                </h3>
+
+                <p>
+                    ได้เข้าร่วมกิจกรรมการแข่งขัน
+                    <strong>การแต่งหน้าโต่วอิน</strong>
+                    ประเภททีม โดยรับหน้าที่เป็นช่างแต่งหน้า
+                    และแต่งตัว
+                </p>
+
+                <p>
+                    <strong>ได้รับรางวัลชนะเลิศอันดับที่ 1</strong>
+                </p>
+
+            </div>
+
+
+            <!-- ผลงานที่ 3 -->
+
+            <div class="work-card">
+
+                <h3>
+                    ค่ายภาษาจีน
+                </h3>
+
+                <p>
+                    ได้รับหน้าที่เป็นสต๊าฟในการดูแลฐานกิจกรรม
+                    <strong>หมากล้อม</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ความสามารถพิเศษ
+    ========================== -->
+
+    <section id="skills">
+
+        <h2>ความสามารถพิเศษ</h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                🎨 วาดรูป
+            </div>
+
+            <div class="skill">
+                🎤 ร้องเพลง
+            </div>
+
+            <div class="skill">
+                💄 การแต่งหน้า
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ติดต่อ
+    ========================== -->
+
+    <section>
+
+        <div class="contact">
+
+            <h2>ขอบคุณที่เข้าชม Portfolio</h2>
+
+            <p>
+                นางสาวรวิภา คำจันทร์
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
+
+    <footer>
+
+        © 2026 Ravipa Khamchan
+
+    </footer>
+
 
 </body>
-
 </html>
+```
+
+**ตอนนี้คุณไม่ต้องแก้อะไรในโค้ดก่อนก็ได้** เพราะผมใส่ข้อมูลที่คุณส่งมาให้ครบแล้ว ทั้งชื่อ ข้อมูลส่วนตัว ผลงาน 3 รายการ และความสามารถพิเศษ
+
+ถ้าคุณต้องการ **ให้หน้าตาเหมือนเว็บตัวอย่างที่ส่งมาแบบตรง ๆ มากกว่านี้** ผมสามารถทำต่อจากเว็บตัวอย่างที่เปิดดูได้แล้ว โดยคงโครงสร้างเนื้อหาเดิมของเว็บนั้นและเปลี่ยนเป็นข้อมูลของรวิภาให้ครับ
